@@ -1,0 +1,51 @@
+[33mcommit fb191e57138f3e939c6a52230bdd6724fed2c759[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Paul Yaro <alassane-paul.yaro@outlook.fr>
+Date:   Wed Apr 12 16:23:24 2023 +0200
+
+     update get setArg
+
+[33mcommit f3cc68bb5c0aecdafef8bc8f0c846f993a24f212[m
+Merge: 28e92b0 183f07f
+Author: PAUL YARO <alassane-paul.yaro@outlook.fr>
+Date:   Mon Mar 6 14:17:12 2023 +0000
+
+    Merged PR 31: add  content for remote server
+    
+    add  content for remote server
+
+[33mcommit 183f07f935b1b004773e9f084747fafee744d20c[m
+Author: Paul Yaro <“alassane-paul.yaro@outlook.fr”>
+Date:   Sun Mar 5 14:14:19 2023 +0100
+
+     add  content for remote server
+
+[33mcommit 28e92b0ff1f0f1a0abecb0f0275dc60afb206090[m
+Merge: 1468b07 6d7dac8
+Author: PAUL YARO <alassane-paul.yaro@outlook.fr>
+Date:   Fri Mar 3 08:24:54 2023 +0000
+
+    Merged PR 30: recyclerview
+
+[33mcommit 6d7dac8c66f7d94772f1c9e5c83611052ec7f223[m
+Author: Paul Yaro <“alassane-paul.yaro@outlook.fr”>
+Date:   Fri Mar 3 08:57:57 2023 +0100
+
+    add recyclerview adapter
+
+[33mcommit 2388ed173582b42701664e88c326d3b96aadac3a[m
+Author: Paul Yaro <“alassane-paul.yaro@outlook.fr”>
+Date:   Mon Feb 27 19:29:05 2023 +0100
+
+    add recyclerview
+
+[33mcommit 1468b07c559f46126dd07e3b42d5c4641cb7ddce[m
+Author: Paul Yaro <“alassane-paul.yaro@outlook.fr”>
+Date:   Mon Feb 27 14:51:02 2023 +0100
+
+    add bottom navigation
+
+[33mcommit 6dcd2342f8fba2aa8fec12cd00bdfd0590501481[m
+Author: Paul Yaro <“alassane-paul.yaro@outlook.fr”>
+Date:   Mon Feb 27 11:29:54 2023 +0100
+
+    first commit

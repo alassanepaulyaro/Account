@@ -1,4 +1,4 @@
-package com.example.ca_compte
+package com.example.ca_compte.presentation
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ca_compte.adapters.OperationAdapter
+import com.example.ca_compte.data.model.Account
 import com.example.ca_compte.databinding.FragmentOperationBinding
 
 /**
@@ -19,8 +20,16 @@ class OperationFragment : Fragment() {
 
     private var _binding: FragmentOperationBinding? = null
     private val binding get() = _binding!!
-    val args : OperationFragmentArgs by navArgs()
+    private val args: OperationFragmentArgs by navArgs()
     private lateinit var operationAdapter: OperationAdapter
+    private lateinit var account: Account
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            account = args.accountData
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,17 +43,16 @@ class OperationFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val account = args.accountData
-        Log.d("OperationFragment", "onViewCreated :  "+ account.holder)
+
         operationAdapter = OperationAdapter(account.operations)
         binding.apply {
             operationAmountTitle.text = account.label
-            operationAmountHolder.text =  account.balance.toString() + " \u20ac"
+            operationAmountHolder.text = account.balance.toString() + " \u20ac"
 
             recyclerviewOperation.apply {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)
-                adapter=operationAdapter
+                adapter = operationAdapter
             }
         }
     }
