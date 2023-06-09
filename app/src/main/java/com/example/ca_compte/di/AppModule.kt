@@ -3,42 +3,27 @@ package com.example.ca_compte.di
 import com.example.ca_compte.data.BankAPI
 import com.example.ca_compte.repository.BankRepositoryImpl
 import com.example.ca_compte.utils.Constants
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 class AppModule {
-    @Provides
-    @Singleton
-    fun provideLoggingInterceptor(): HttpLoggingInterceptor {
-        return HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
-    }
 
-    @Provides
-    @Singleton
-    fun provideOkHttpClient(logging: HttpLoggingInterceptor): OkHttpClient{
-        return OkHttpClient.Builder()
-            .addInterceptor(logging)
-            .build()
-    }
+    private val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
 
     @Singleton
     @Provides
-    fun providerBankApi(client: OkHttpClient): BankAPI =
-        Retrofit.Builder()
-            .baseUrl(Constants.BASE_URL)
-            .client(client)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-            .create(BankAPI::class.java)
+    fun providerBankApi(): BankAPI = Retrofit.Builder().baseUrl(Constants.BASE_URL)
+        .addConverterFactory(MoshiConverterFactory.create(moshi)).build()
+        .create(BankAPI::class.java)
 
     @Singleton
     @Provides

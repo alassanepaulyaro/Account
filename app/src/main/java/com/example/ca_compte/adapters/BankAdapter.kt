@@ -51,8 +51,9 @@ class BankAdapter(val data: List<BankItem>?, val userClickListener: UserClickLis
 
     override fun getItemCount() = items?.size?: 0
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun onItemClicked(bankUi: BankItem.BankUi){
-        bankUi?.isExpanded = !bankUi?.isExpanded!!
+        bankUi.isExpanded = !bankUi.isExpanded!!
         notifyDataSetChanged()
     }
 

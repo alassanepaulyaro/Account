@@ -1,7 +1,9 @@
 package com.example.ca_compte.data.model
 
+import com.google.gson.annotations.SerializedName
+
 data class Bank(
-    val accounts: List<Account>,
-    val isCA: Int,
-    val name: String
+    @SerializedName("accounts") val accounts: List<Account>,
+    @SerializedName("isCA") val isCA: Int,
+    @SerializedName("name") val name: String
 )

@@ -4,6 +4,9 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
+import com.example.ca_compte.data.model.Bank
+import com.example.ca_compte.data.model.BankItem
+import retrofit2.Response
 
 class NetworkUtil {
     companion object{
@@ -35,4 +38,28 @@ class NetworkUtil {
             return false
         }
     }
+
+   /* private fun handleBankDataResponse(response: Response<List<Bank>>): Resource<List<BankItem>>? {
+        return when {
+            response.message().toString().contains("timeout") -> {
+                Resource.Error("Timeout")
+            }
+            response.code() == 402 -> {
+                Resource.Error("API Key Limited.")
+            }
+            response.code() == 404 -> {
+                Resource.Error("File not found.")
+            }
+            response.body().isNullOrEmpty() -> {
+                return Resource.Error("Bank List not found.")
+            }
+            response.isSuccessful -> {
+                val bankList = response.body()
+                //Resource.Success(getListBankToDisplay(bankList!!))
+            }
+            else -> {
+                Resource.Error(response.message())
+            }
+        }
+    }*/
 }
